@@ -36,6 +36,9 @@ static PAIRING_STORAGE: OnceLock<Mutex<PairingStorageEntry>> = OnceLock::new();
 
 const PAIRING_APPS: &[(&str, &str)] = &[
     ("SideStore", "ALTPairingFile.mobiledevicepairing"),
+    // AltStore (the fork with on-device sideloading) looks for this exact file name in its own
+    // Documents folder and adopts it automatically (see PairingFileManager.swift).
+    ("AltStore", "ALTPairingFile.mobiledevicepairing"),
     (
         "LiveContainer",
         "SideStore/Documents/ALTPairingFile.mobiledevicepairing",
